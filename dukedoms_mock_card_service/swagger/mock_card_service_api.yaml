@@ -1,0 +1,30 @@
+swagger: "2.0"
+info:
+  title: "Mock Dukedoms Card Service Api"
+  version: "0.1.0"
+
+paths:
+  /getCardList/{gameId}:
+    get:
+      summary: get the card list for a given game
+      x-swagger-router-controller: controllers.list_operations
+      operationId: get_card_list
+      tags:
+        - listOperations
+      parameters:
+        - in: path
+          name: gameId
+          type: integer
+          required: true
+          description: id of the game for which to fetch card list
+      responses:
+        200:
+          description: game card list found successfully
+          schema:
+            $ref: '#/definitions/CardList'
+        404:
+          description: no game found with that id
+
+definitions:
+  CardList:
+    type: object
