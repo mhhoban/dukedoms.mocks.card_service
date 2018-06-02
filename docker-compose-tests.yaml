@@ -1,9 +1,20 @@
 version: '2'
+networks:
+  internal:
+    driver: bridge
 
 services:
   mock-card-service:
     image: mhhoban/dukedoms_mock_card_service:latest
+    networks:
+      internal:
+        aliases:
+          - mock-card-service
 
   tests:
     image: mhhoban/dukedoms_mock_card_service_tests
     command: ["../wait-for-it.sh", "mock-card-service:8080", "--", "behave"]
+    networks:
+      internal:
+        aliases:
+          - tests
