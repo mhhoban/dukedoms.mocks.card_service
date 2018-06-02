@@ -8,10 +8,4 @@ setup(
   package_data={
     'dukedoms_mock_card_service': ['swagger/mock_card_service_api.yaml']
   },
-  install_requires=[
-    'addict',
-    'connexion',
-    'flask',
-    'flask_api'
-  ]
 )

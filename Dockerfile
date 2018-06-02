@@ -1,6 +1,18 @@
 FROM python:3.6.5-alpine3.7
 
-COPY ./dist/dukedomsmockscardservice-0.0.0.tar.gz /dukedomsmockscardservice.tar.gz
-RUN pip3 install /dukedomsmockscardservice.tar.gz
+COPY requirements.txt /
 
-CMD ["python", "/usr/local/lib/python3.6/site-packages/dukedoms_mock_card_service/mock_card_service.py"]
+RUN pip3 install -r /requirements.txt
+
+COPY setup.py /setup.py
+
+ARG service
+COPY $service/ /$service
+
+RUN pip3 install -e .
+
+ARG service
+WORKDIR /$service
+
+
+CMD ["gunicorn", "mock_card_service:application", "-b", "0.0.0.0:8080"]

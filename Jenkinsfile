@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Build Docker Image') {
       steps {
-        sh 'docker build --tag mhhoban/dukedoms_mock_card_service:latest .'
+        sh './build_docker_image'
         sh 'docker tag mhhoban/dukedoms_mock_card_service:latest mhhoban/dukedoms_mock_card_service:$GIT_COMMIT '
       }
     }

@@ -1,0 +1,5 @@
+addict
+connexion
+flask
+flask_api
+gunicorn
