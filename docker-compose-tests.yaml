@@ -5,7 +5,7 @@ networks:
 
 services:
   mock-card-service:
-    image: mhhoban/dukedoms_mock_card_service:latest
+    image: mhhoban/dukedoms_mock_card_service:candidate
     networks:
       internal:
         aliases:
