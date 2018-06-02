@@ -4,6 +4,7 @@ COPY requirements.txt /
 
 RUN pip3 install -r /requirements.txt
 
+COPY utility_scripts/wait-for-it.sh /
 COPY setup.py /setup.py
 
 ARG service
