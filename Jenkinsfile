@@ -13,14 +13,9 @@ pipeline {
         checkout scm
       }
     }
-    stage('Build sdist') {
-      steps {
-        sh 'python setup.py sdist'
-      }
-    }
     stage('Build Docker Image') {
       steps {
-        sh './build_docker_image'
+        sh './build_docker_image.sh'
         sh 'docker tag mhhoban/dukedoms_mock_card_service:latest mhhoban/dukedoms_mock_card_service:$GIT_COMMIT '
       }
     }
