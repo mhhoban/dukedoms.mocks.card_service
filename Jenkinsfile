@@ -3,7 +3,7 @@
 pipeline {
   agent {
     docker {
-      image 'mhhoban/pythonbuild:cti'
+      image 'mhhoban/pythonbuild:cit'
       args '-v /var/run/docker.sock:/var/run/docker.sock:rw'
     }
   }
