@@ -25,7 +25,7 @@ pipeline {
     }
     stage('Tag New Build') {
       steps {
-        sh 'docker tag mhhoban/dukedoms-mock-card-service:candidate mhhoban/mhhoban/dukedoms-mock-card-service:$GIT_COMMIT'
+        sh 'docker tag mhhoban/dukedoms-mock-card-service:candidate mhhoban/dukedoms-mock-card-service:$GIT_COMMIT'
         sh 'docker tag mhhoban/dukedoms-mock-card-service:candidate mhhoban/dukedoms-mock-card-service:latest'
       }
     }
