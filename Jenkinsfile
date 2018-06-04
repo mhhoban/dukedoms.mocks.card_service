@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Test New Build') {
       steps {
-        sh './run_component_tests.sh'
+        sh 'component_tests/run_component_tests.sh'
       }
     }
     stage('Tag New Build') {
