@@ -1,0 +1,6 @@
+version: '2'
+services:
+  mock-card-service:
+    image: mhhoban/dukedoms_mock_card_service:latest
+    ports:
+      - 5005:8080

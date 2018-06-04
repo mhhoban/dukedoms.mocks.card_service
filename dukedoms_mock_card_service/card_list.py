@@ -179,3 +179,9 @@ card_catalog = {
         'id': 16
     }
 }
+
+card_list = {
+    'victoryCards': [4,5,6],
+    'actionCards': [7,8,9,10,11,12,13,14,15,16],
+    'treasureCards': [1,2,3]
+}
