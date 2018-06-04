@@ -25,8 +25,8 @@ pipeline {
     }
     stage('Tag New Build') {
       steps {
-        sh 'docker tag mhhoban/dukedoms_mock_card_service:candidate mhhoban/dukedoms_mock_card_service:$GIT_COMMIT'
-        sh 'docker tag mhhoban/dukedoms_mock_card_service:candidate mhhoban/dukedoms_mock_card_service:latest'
+        sh 'docker tag mhhoban/dukedoms-mock-card-service:candidate mhhoban/mhhoban/dukedoms-mock-card-service:$GIT_COMMIT'
+        sh 'docker tag mhhoban/dukedoms-mock-card-service:candidate mhhoban/dukedoms-mock-card-service:latest'
       }
     }
     stage('Publish Image to DockerHub') {
@@ -34,8 +34,8 @@ pipeline {
       withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub-auth',
                     usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
         sh 'docker login -u $USERNAME -p $PASSWORD'
-        sh 'docker push mhhoban/dukedoms_mock_card_service:latest'
-        sh 'docker push mhhoban/dukedoms_mock_card_service:$GIT_COMMIT'
+        sh 'docker push mhhoban/dukedoms-mock-card-service:latest'
+        sh 'docker push mhhoban/dukedoms-mock-card-service:$GIT_COMMIT'
 
       }
     }
