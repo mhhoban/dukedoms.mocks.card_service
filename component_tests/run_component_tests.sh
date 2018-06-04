@@ -1,5 +1,5 @@
 cleanup () {
-  docker-compose -f component-tests/docker-compose.yaml -p citest down -v
+  docker-compose -f component_tests/docker-compose.yaml -p citest down -v
 }
 
 docker-compose -f component-tests/docker-compose.yaml pull \
